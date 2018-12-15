@@ -17,7 +17,7 @@ router.get("/", function (req, res) {
         console.log('*');
         // Then, we load that into cheerio and save it to $ for a shorthand selector
         let $ = cheerio.load(response.data);
-        console.log($('.item-container-grid'));
+        console.log(response.data);
 
         $('.item-container-grid').each((index, element) => {
             console.log($(element));
