@@ -20,6 +20,7 @@ router.get("/", function (req, res) {
         console.log('**');
 
         $('.item-container-grid').each((index, element) => {
+            console.log($(element));
             let tPrice = $(element).find('.price-current').text().trim();
             tPrice = tPrice.split('.');
             let total = parseInt(tPrice[0].substring(1, tPrice[0].length));
@@ -33,7 +34,8 @@ router.get("/", function (req, res) {
                 newArticles.push({ title, artlink, price, img});
             }
         });
-        if (newArticles) {
+        console.log(`articles : ${newArticles}`);
+        if (newArticles.length>1) {
             article.create(newArticles)
                 .then(dbArticle => {
                     newArticles=[];
