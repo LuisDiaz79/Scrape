@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Movie App </title>
+	<% include head %>
+</head>
+
+<body>
+	<% include navbar %>
+	<div class="container" style="position: relative">
+		<div class="row main-row synopsis-row">
+			<div class="col-md-4">
+				<p class="text-center"><a href="<%= movieData.homepage %>"><img class="single-movie-img hvr-glow" src="<%= imageBaseUrl + movieData.poster_path %>" /></a></p>
+			</div>
+			<div class="col-md-8" style="padding-left: 40px; padding-right: 0;">
+				<h1 class="single-movie-title">
+					<strong>
+						<%= movieData.title %></strong>
+				</h1>
+				<h2 class="overview-header">Synopsis: <br/><br/><span class="single-movie-overview">
+						<%= movieData.overview %>
+					</span></h2>
+					<!-- Button trigger modal -->
+
+				<button type="button" class="btn btn-warning btn-favorite" data-toggle="modal" data-target="#myModal"><i class="fa fa-heart"></i>
+				<span>Add to Favorites</span>
+				</button>
+				<a href="<%= movieData.homepage %>">
+					<button type="button" class="btn btn-warning btn-homepage">
+
+						<span>Visit Site</span>
+					</button>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label=""><span aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-12 text-center">
+							<h3 class="favorite"><i class="fa fa-heart" style="font-size:24px;color:red"></i> Added to Favorites</h3>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

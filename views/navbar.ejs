@@ -1,0 +1,30 @@
+<nav id="navbar-header" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">NewEgg Scrape</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <form action="/search?source=hp" method="post" id="search-form" class="form-inline">
+              <div class="form-group">
+                <select name="cat" class="form-control" id="cat">
+                  <option value="movie">Movie Title</option>
+                  <option value="person">Actors</option>
+                </select>
+              </div>
+              <input type="text" id="movie" placeholder="Search" name="movieSearch" />
+              <input type="submit" class="btn btn-warning" />
+            </form>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container-fluid -->
+</nav>

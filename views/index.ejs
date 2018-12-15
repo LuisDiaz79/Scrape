@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Movie App </title>
+	<% include head %>
+</head>
+
+<body>
+	<% include navbar %>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>NewEgg Scrape!!</h1>
+			</div>
+			<div class="col-sm-12">
+				<% jsonData.forEach((article) => { console.log(article.title);%>
+				<div class="col-md-3 col-sm-4 poster">
+					<a href="<%= article.artlink %>"><img class="hvr-grow" src="<%= article.img %>"></a>
+					<p>
+						<%= article.title %>
+					</p>
+					<p>$
+						<%= article.price %>
+					</p>
+					<button type="button" class="btn btn-primary btn-lg btn-block btnmodal" data-toggle="modal" data-target="#noteModal"
+					 data-id="<%= article.id %>">Add Note</button>
+				</div>
+
+				<% }) %>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="exampleModalLabel">New message</h4>
+					<h6 class="modal-price" id="exampleModalLabel">Price</h6>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="article-note-title" class="col-form-label">Note Title:</label>
+							<input type="text" class="form-control" id="article-note-title">
+						</div>
+						<div class="form-group">
+							<label for="message-note" class="col-form-label">Note:</label>
+							<textarea class="form-control" id="message-note"></textarea>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button id="savenote" type="button" class="btn btn-primary" data-dismiss="modal" data-id=''>Send message</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<% if((typeof user != 'undefined') && (flag === 0)) { %>
+	<% console.log("About to open modal, flag: " + flag); %>
+	<% include authenticated-modal %>
+	<% } %>
+</body>
+
+</html>
